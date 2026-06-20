@@ -73,3 +73,34 @@ export interface QuizResponse {
   lesson_id: number;
   questions: QuizQuestion[];
 }
+
+export interface TradeJournal {
+  id: number;
+  user_id: number;
+  symbol: string;
+  side: 'BUY' | 'SELL';
+  entry_price: number;
+  exit_price?: number;
+  quantity: number;
+  stop_loss?: number;
+  take_profit?: number;
+  profit_loss?: number;
+  rr_ratio?: number;
+  notes?: string;
+  emotion?: string;
+  screenshot_url?: string;
+  trade_date?: string;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface TradeAnalytics {
+  total_trades: number;
+  winning_trades: number;
+  losing_trades: number;
+  win_rate: number;
+  average_rr: number;
+  best_trade: number;
+  worst_trade: number;
+  total_profit: number;
+}

@@ -1,1 +1,0 @@
-# gk-trader-ai
