@@ -3,6 +3,9 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.api import auth
 from app.api.teacher import router as teacher_router
 from app.api.journal import router as journal_router
+from app.api.risk import router as risk_router
+from app.api.goal import router as goal_router
+from app.api.performance import router as performance_router
 from app.database import init_db
 
 app = FastAPI(title="GK Trader API")
@@ -22,6 +25,9 @@ async def on_startup() -> None:
 app.include_router(auth.router, prefix="/api/auth", tags=["auth"])
 app.include_router(teacher_router, prefix="/api/teacher", tags=["teacher"])
 app.include_router(journal_router, prefix="/api/journal", tags=["journal"])
+app.include_router(risk_router, prefix="/api/risk", tags=["risk"])
+app.include_router(goal_router, prefix="/api/goal", tags=["goal"])
+app.include_router(performance_router, prefix="/api/performance", tags=["performance"])
 
 @app.get("/api/health")
 def health_check() -> dict:
